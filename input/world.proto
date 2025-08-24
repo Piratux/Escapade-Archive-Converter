@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package protocol;
+option go_package = "./protocol";
+
+message WorldData {
+  uint32 width = 1;
+  uint32 height = 2;
+  repeated bytes layer = 3;
+
+  repeated BlockEntry block_entries = 20;
+  uint32 next_entry_id = 21;
+}
+
+message BlockEntry {
+  uint32 entry_id = 1;
+  uint32 entry_rc = 2;
+
+  uint64 block_id = 3;
+  repeated int32 int_args = 4;
+  repeated string string_args = 5;
+}
